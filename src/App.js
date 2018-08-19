@@ -84,7 +84,8 @@ class App extends Component {
     window.grecaptcha.reset();
     let address = this.state.address;
     let recaptcha = this.state.recaptcha;
-    const url = 'https://toolbox.bitfwd.xyz/api/eth_sendRawTransaction';
+    //const url = 'https://toolbox.bitfwd.xyz/api/eth_sendRawTransaction';
+    const url = 'http://localhost:3001/api/eth_sendRawTransaction';
 
     let type = '';
     let response;
@@ -156,7 +157,7 @@ class App extends Component {
               <div className="row">
                 <form onSubmit={this.handleSubmit} style={{width: "100%"}}>
                   <input className="fwd-input" style={{width: "65%", marginRight: "8px"}} placeholder="Your Ethereum Address" type="text" value={this.state.address} onChange={this.handleChange} />
-                  <ReCAPTCHA sitekey="6Lc36UYUAAAAAKIoH-Yyqxn7Mw51MuzC884LS8M5" onChange={this.handleCaptchaResponse} />
+                  <ReCAPTCHA sitekey="6LdJqWoUAAAAAPbwbB1w67jXMvKuy5cnC2cNX9Gu" onChange={this.handleCaptchaResponse} />
                   <input className="fwd-btn" style={{width: "30%"}} type="submit" value="Get ETH!" />
                 </form>
                 <br />
@@ -167,12 +168,12 @@ class App extends Component {
               <div className="row">
                 <div className="col">
                   <div className="hspace d-block d-md-none"></div>
-                  <img className="poweredby" src="/img/bitfwd_pwrd.png" />
+                  <img className="poweredby" src="/img/bitfwd_pwrd.png" alt="Powered By"/>
                 </div>
               </div>
               <div className="row" style={{paddingTop: "50px", paddingBottom: "50px"}}>
                 <div className="col">
-                  <center>A partnership between <a href="https://bitfwd.com" target="_blank">bitfwd</a> community and <a href="https://github.com/bokkypoobah" target="_blank">Bokky PooBah</a><span className="txt-blue">!</span></center>
+                  <center>A partnership between <a href="https://bitfwd.com" target="_blank" rel="noopener noreferrer">bitfwd</a> community and <a href="https://github.com/bokkypoobah" target="_blank">Bokky PooBah</a><span className="txt-blue">!</span></center>
                 </div>
               </div>
             </div>
@@ -190,7 +191,7 @@ class App extends Component {
               </div>
               <div className="row">
                 <div className="col">
-                  <center><a href="https://medium.com/bitfwd/how-to-do-an-ico-on-ethereum-in-less-than-20-minutes-a0062219374" target="_blank" className="fwd-btn" style={{fontSize: "1.4rem", padding: "12px 24px"}}>Learn how to issue your own ICO</a></center>
+                  <center><a href="https://medium.com/bitfwd/how-to-do-an-ico-on-ethereum-in-less-than-20-minutes-a0062219374" target="_blank" rel="noopener noreferrer" className="fwd-btn" style={{fontSize: "1.4rem", padding: "12px 24px"}}>Learn how to issue your own ICO</a></center>
                 </div>
               </div>
               <div className="row" style={{paddingTop: "40px", paddingBottom: "40px"}}>
@@ -200,7 +201,7 @@ class App extends Component {
               </div>
               <div className="row">
                 <div className="col">
-                  <form action="https://xyz.us12.list-manage.com/subscribe/post?u=e305133cac0aefe39c72fb9ea&amp;id=e95f04b163" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                  <form action="https://xyz.us12.list-manage.com/subscribe/post?u=e305133cac0aefe39c72fb9ea&amp;id=e95f04b163" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" rel="noopener noreferrer" noValidate>
                     <input className="fwd-input width100" type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email" required/>
                     <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_e305133cac0aefe39c72fb9ea_e95f04b163" tabIndex="-1" value=""/></div>
                     <br />
@@ -212,7 +213,7 @@ class App extends Component {
           </div>
           <footer className="row" style={{paddingTop: "40px"}}>
             <div className="col">
-              <center><a href="https://t.me/joinchat/EDRmq1Km4zYE-0aQ7SPUng" target="_blank">telegram</a> - <a href="https://twitter.com/bitfwdxyz" target="_blank">twitter</a> - <a href="https://medium.com/bitfwd" target="_blank">medium</a> - <a href="https://www.facebook.com/bitfwd/" target="_blank">facebook</a></center>
+              <center><a href="https://t.me/joinchat/EDRmq1Km4zYE-0aQ7SPUng" target="_blank" rel="noopener noreferrer">telegram</a> - <a href="https://twitter.com/bitfwdxyz" target="_blank">twitter</a> - <a href="https://medium.com/bitfwd" target="_blank">medium</a> - <a href="https://www.facebook.com/bitfwd/" target="_blank">facebook</a></center>
             </div>
           </footer>
         </div>
