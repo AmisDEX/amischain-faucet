@@ -1,4 +1,5 @@
 const EthereumTx = require('ethereumjs-tx');
+const wanUtil = require('wanchain-util');
 const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
@@ -19,10 +20,13 @@ app.use(morgan('combined'));
 app.options('/api/eth_sendRawTransaction', cors());
 
 const privateKey = config.privateKey;
+console.log(privateKey);
 const key = Buffer.from(privateKey, 'hex');
-const url = 'https://ropsten.infura.io/';
+const url = 'https://mywanwallet.nl/api/';
 const blacklistTime = 1440; //mins
 const recaptchaSecret = config.recaptchaSecret;
+
+var Tx = wanUtil.wanchainTx;
 
 // Axios request interceptor
 // axios.interceptors.request.use(request => {
@@ -35,21 +39,23 @@ const recaptchaSecret = config.recaptchaSecret;
 function generateTx(nonce, to) {
   // const testWeiAmount = 1000000000000000;
   // const value = '0x' + parseInt(testWeiAmount).toString(16);
-  const amount = 1000000000000000000;
+  const amount = 10000000000000000;
   const value = '0x' + parseInt(amount).toString(16);
+    //Txtype: 1,
   const txParams = {
     nonce: nonce,
-    gasPrice: '0x2540be400',
+    gasPrice: '0x29E8D60800',
     gasLimit: '0xc350',
     to: to,
-    value: value,
-    data: '0x00',
-    chainId: 3
+    value: value
   }
 
-  const tx = new EthereumTx(txParams)
+  //const tx = new EthereumTx(txParams)
+  const tx = new Tx(txParams)
   tx.sign(key);
   const serializedTx = tx.serialize();
+console.log(serializedTx);
+console.log(tx);
   return serializedTx.toString('hex');
 }
 
@@ -178,11 +184,18 @@ app.post('/api/eth_sendRawTransaction', cors(), async (req, res) => {
         },
         data: params
       });
-
+console.log(response)
       if (typeof response.data.result != "undefined") {
         done = true;
       } else if (response.data.error.message != "undefined") {
-        if (response.data.error.message == "nonce too low") txCount++;
+        if (response.data.error.message == "nonce too low") {
+          txCount++;
+        } else {
+          // other error occurred
+          console.log(response.data.error.message)
+          done = true;
+          error = true;
+        }
       }
     } catch (error) {
       console.log(error.message);
@@ -192,7 +205,11 @@ app.post('/api/eth_sendRawTransaction', cors(), async (req, res) => {
 
   if (response.status != 200) return res.status(500);
 
-  res.send(response.data.result);
+  if (error) {
+    return res.status(503).send(response.data.error.message);
+  } else {
+    res.send(response.data.result);
+  }
 })
 
 app.listen(3001, () => {
