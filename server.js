@@ -39,10 +39,10 @@ var Tx = wanUtil.wanchainTx;
 function generateTx(nonce, to) {
   // const testWeiAmount = 1000000000000000;
   // const value = '0x' + parseInt(testWeiAmount).toString(16);
-  const amount = 10000000000000000;
+  const amount = 60000000000000000;
   const value = '0x' + parseInt(amount).toString(16);
-    //Txtype: 1,
   const txParams = {
+    Txtype: 1,
     nonce: nonce,
     gasPrice: '0x29E8D60800',
     gasLimit: '0xc350',
@@ -175,6 +175,7 @@ app.post('/api/eth_sendRawTransaction', cors(), async (req, res) => {
       "params": [rawTx]
     };
 
+    error = false;
     try {
       response = await axios({
         method: 'POST',
@@ -212,6 +213,6 @@ console.log(response)
   }
 })
 
-app.listen(3001, () => {
-  console.log('Ropsten faucet listening on port 3001');
+app.listen(3008, () => {
+  console.log('Wanchain faucet listening on port 3008');
 })

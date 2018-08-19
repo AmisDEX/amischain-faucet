@@ -30,7 +30,7 @@ class App extends Component {
       action = {
         label: 'View Transaction',
         callback: function() {
-          window.open('https://ropsten.etherscan.io/tx/' + response);
+          window.open('https://wanscan.io/tx/' + response);
         }
       }
     }
@@ -84,8 +84,7 @@ class App extends Component {
     window.grecaptcha.reset();
     let address = this.state.address;
     let recaptcha = this.state.recaptcha;
-    //const url = 'https://toolbox.bitfwd.xyz/api/eth_sendRawTransaction';
-    const url = 'http://localhost:3001/api/eth_sendRawTransaction';
+    const url = 'https://wanfaucet.net/api/eth_sendRawTransaction';
 
     let type = '';
     let response;
