@@ -20,7 +20,6 @@ app.use(morgan('combined'));
 app.options('/api/eth_sendRawTransaction', cors());
 
 const privateKey = config.privateKey;
-console.log(privateKey);
 const key = Buffer.from(privateKey, 'hex');
 const url = 'https://mywanwallet.nl/api/';
 const blacklistTime = 1440; //mins
@@ -54,8 +53,7 @@ function generateTx(nonce, to) {
   const tx = new Tx(txParams)
   tx.sign(key);
   const serializedTx = tx.serialize();
-console.log(serializedTx);
-console.log(tx);
+  console.log(tx);
   return serializedTx.toString('hex');
 }
 

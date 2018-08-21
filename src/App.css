@@ -1,5 +1,5 @@
 span.txt-blue {
-  color: #02d7ea;
+  color: #398ed3;
 }
 
 img.poweredby {
@@ -8,7 +8,7 @@ img.poweredby {
 }
 
 a, a:hover {
-  color: #02d7ea;
+  color: #398ed3;
   text-decoration: underline;
 }
 
@@ -37,17 +37,17 @@ ul.features-list li {
   border: 1px solid #ffffff;
   border-radius: 2px;
   background-color: transparent;
-  color: #02d7ea;
+  color: #398ed3;
   text-align: center;
 }
 
 .fwd-btn {
-  background: #02d7ea;
+  background: #398ed3;
   color: #000;
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  border: 1px solid #02d7ea;
+  border: 1px solid #398ed3;
 }
 
 a.fwd-btn {
@@ -56,7 +56,7 @@ a.fwd-btn {
 
 .fwd-btn:hover {
   background: transparent;
-  color: #02d7ea;
+  color: #398ed3;
 }
 
 .fwd-btn,
@@ -71,7 +71,7 @@ a.fwd-btn {
 }
 
 .notice {
-  background: #02d7ea;
+  background: #398ed3;
   color: white;
   height: 50px;
   text-align: center;
