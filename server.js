@@ -44,7 +44,6 @@ function generateTx(nonce, to) {
   const tx = new Tx(txParams)
   tx.sign(key);
   const serializedTx = tx.serialize();
-  console.log(tx);
   return serializedTx.toString('hex');
 }
 
@@ -65,26 +64,32 @@ function setupBlacklist(path) {
   // if file exists check modified date
   // < 60 mins reject
   // > 60 mins touch the file and release
-function releaseEther(ipPath) {
+function releaseEther(ipPath,addrPath) {
   try {
-    let stats = fs.statSync(ipPath);
-
-    // mtime sample 2017-12-29T14:24:26.472Z
-    var mtime = moment(stats['mtime']);
-    var now = moment();
-    var duration = moment.duration(now.diff(mtime));
-
-    if (duration.asMinutes() > blacklistTime) {
-        touch.sync(ipPath);
-        return true;
-    } else {
-        console.log(ipPath + ' - blacklisted')
-        return false;
-    }
-  }
+    let stats = fs.statSync(addrPath);
+    
+    // if not error this address was used.. 
+    return false;
+  } 
   catch (err) {
-      touch.sync(ipPath)
-      return true;
+    try {
+      let stats = fs.statSync(ipPath);
+
+      // mtime sample 2017-12-29T14:24:26.472Z
+      var mtime = moment(stats['mtime']);
+      var now = moment();
+      var duration = moment.duration(now.diff(mtime));
+
+      if (duration.asMinutes() > blacklistTime) {
+          return true;
+      } else {
+          console.log(ipPath + ' - blacklisted')
+          return false;
+      }
+    }
+    catch (err) {
+        return true;
+    }
   }
 }
 
@@ -99,6 +104,7 @@ app.post('/api/eth_sendRawTransaction', cors(), async (req, res) => {
   let ip = req.headers['cf-connecting-ip'] || req.connection.remoteAddress;
   let path = "/tmp/faucet/"
   let ipPath = path + ip
+  let addrPath = path + req.body.address
   setupBlacklist(path)
 
   // check captcha
@@ -124,7 +130,7 @@ app.post('/api/eth_sendRawTransaction', cors(), async (req, res) => {
   if (captchaResponse.data.hostname != ip) console.log('Captcha was not solved at host ip');
 
   // release variable below determines whether IP is blacklisted
-  let release = releaseEther(ipPath)
+  let release = releaseEther(ipPath, addrPath)
   if (!release) {
     res.status(429).send('IP address temporarily blacklisted.');
     return false;
@@ -174,8 +180,9 @@ app.post('/api/eth_sendRawTransaction', cors(), async (req, res) => {
         },
         data: params
       });
-console.log(response)
       if (typeof response.data.result != "undefined") {
+        touch.sync(ipPath)
+        touch.sync(addrPath)
         done = true;
       } else if (response.data.error.message != "undefined") {
         if (response.data.error.message == "nonce too low") {
