@@ -86,6 +86,7 @@ class App extends Component {
     let recaptcha = this.state.recaptcha;
     const url = 'https://wanfaucet.net/api/eth_sendRawTransaction';
 
+
     let type = '';
     let response;
     let txHash = '';

@@ -7,7 +7,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-server": "pm2 start wanchain-faucet",
+    "stop-server": "pm2 stop wanchain-faucet",
+    "logs-server": "pm2 logs wanchain-faucet"
   },
   "author": "",
   "license": "ISC",
@@ -19,12 +22,13 @@
     "express": "^4.16.3",
     "moment": "^2.22.2",
     "morgan": "^1.9.0",
+    "pm2": "^3.0.4",
     "react": "^16.4.2",
     "react-async-script": "^0.9.1",
     "react-dom": "^16.4.2",
     "react-google-recaptcha": "^1.0.0",
     "react-notification-system": "^0.2.17",
-    "react-scripts": "^1.1.4",
+    "react-scripts": "^1.1.5",
     "touch": "^3.1.0",
     "wanchain-util": "^1.2.0"
   },

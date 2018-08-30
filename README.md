@@ -4,18 +4,9 @@
 
 ## Config
 
-You must also include a 'config.js' file that contains the following code:
-
-```
-module.exports = {
-  'address': (address you are sending from),
-  'privateKey': (private key of address)
-}
-```
+You must include a 'config.js' file. See config.js.sample for an example
 
 ## Deployment
-
-Deploy server.js as a node server on the web host of your choice.
 
 The react app can be deployed by first building the application using
 
@@ -23,7 +14,19 @@ The react app can be deployed by first building the application using
 
 before copying the build folder's contents into the static file host of your choice.
 
-## Running The Code
+To run server.js with pm2 type
+
+`npm run start-server`
+
+to stop type 
+
+`npm run start-server`
+
+to view logs type
+
+`npm run logs-server`
+
+## Development
 
 Run
 
@@ -42,6 +45,20 @@ In the other terminal, run
 `node server.js`
 
 to run the server from which blacklisting and tx generation will take place.
+
+Mind to change the url of the backendserver in src/App.js
+
+## Docker
+
+a Dockerfile to run the static html in an nginx container is available. To use it build the statics with
+
+`npm run build`
+
+then create the docker container with
+
+`docker build -t wanchain-faucet .`
+
+`docker run --name wanchain-faucet -d -p 3000:80 wanchain-faucet`
 
 ## License
 

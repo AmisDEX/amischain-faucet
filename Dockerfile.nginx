@@ -1,0 +1,6 @@
+FROM nginx:1.14.0-alpine
+
+MAINTAINER tyrion70@gmail.com
+
+COPY build /usr/share/nginx/html
+

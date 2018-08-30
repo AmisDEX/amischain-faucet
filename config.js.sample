@@ -1,0 +1,5 @@
+var config = module.exports = {};
+
+config.privateKey = "PRIVKEY";
+config.address = "Address for Privkey";
+config.recaptchaSecret = "Recaptcha Sercret";

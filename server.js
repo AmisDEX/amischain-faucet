@@ -27,17 +27,9 @@ const recaptchaSecret = config.recaptchaSecret;
 
 var Tx = wanUtil.wanchainTx;
 
-// Axios request interceptor
-// axios.interceptors.request.use(request => {
-//   console.log(request);
-//   return request;
-// });
-
 // get nonce in future using 'getTransactionCount'
 // Generate raw tx
 function generateTx(nonce, to) {
-  // const testWeiAmount = 1000000000000000;
-  // const value = '0x' + parseInt(testWeiAmount).toString(16);
   const amount = 60000000000000000;
   const value = '0x' + parseInt(amount).toString(16);
   const txParams = {
@@ -49,7 +41,6 @@ function generateTx(nonce, to) {
     value: value
   }
 
-  //const tx = new EthereumTx(txParams)
   const tx = new Tx(txParams)
   tx.sign(key);
   const serializedTx = tx.serialize();
@@ -211,6 +202,6 @@ console.log(response)
   }
 })
 
-app.listen(3008, () => {
-  console.log('Wanchain faucet listening on port 3008');
+app.listen(process.env.PORT, () => {
+  console.log('Wanchain faucet listening on port', process.env.PORT);
 })
