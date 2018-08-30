@@ -46,7 +46,7 @@ class App extends Component {
       case 'error':
         if (response === 'IP address temporarily blacklisted.') {
           this.notificationSystem.addNotification({
-            message: "We only drip 1 RtETH per user per day, please try again tomorrow.",
+            message: "We only drip 0.06 WAN per user per day, please try again tomorrow.",
             level: type,
             position: 'bc'
           });
@@ -178,7 +178,10 @@ class App extends Component {
           <footer className="row" style={{paddingTop: "40px"}}>
             <div className="col">
               <center><a href="https://t.me/tyrion70" target="_blank" rel="noopener noreferrer">telegram</a> - <a href="https://twitter.com/tyrion70" target="_blank" rel="noopener noreferrer">twitter</a></center>
-              <center>Donations: 0x664949908413517B993c6784b44428d080D1a1Fa - Fund faucet: 0x498ee678C15175DDD23fd1b4716D337E84D2297C</center>
+              <center>Donations: <a href="https://wanscan.io/addr/0x664949908413517B993c6784b44428d080D1a1Fa" target="_blank" rel="noopener noreferrer">0x664949908413517B993c6784b44428d080D1a1Fa</a></center>
+              <center>Fund faucet: <a href="https://wanscan.io/addr/0x498ee678C15175DDD23fd1b4716D337E84D2297C" target="_blank" rel="noopener noreferrer">0x498ee678C15175DDD23fd1b4716D337E84D2297C</a></center>
+              <center><a href="https://www.ledger.com/products/ledger-nano-s?r=651b52292b63" target="_blank" rel="noopener noreferrer">Don't have a Ledger? Get one today.</a></center>
+              <center><a href="https://shop.trezor.io?a=mywanwallet.nl" target="_blank" rel="noopener noreferrer">Don't have a TREZOR? Get one now.</a></center>
             </div>
           </footer>
         </div>
