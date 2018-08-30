@@ -96,7 +96,7 @@ app.post('/api/eth_sendRawTransaction', cors(), async (req, res) => {
   if (!req.body.address) return res.status(422).send('Empty address field.');
 
   // get IP address and set up paths
-  let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  let ip = req.headers['cf-connecting-ip'] || req.connection.remoteAddress;
   let path = "/tmp/faucet/"
   let ipPath = path + ip
   setupBlacklist(path)

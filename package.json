@@ -8,9 +8,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start-server": "pm2 start wanchain-faucet",
+    "start-server": "pm2 start server.json",
     "stop-server": "pm2 stop wanchain-faucet",
-    "logs-server": "pm2 logs wanchain-faucet"
+    "logs-server": "pm2 logs wanchain-faucet",
+    "restart-server": "pm2 restart wanchain-faucet"
   },
   "author": "",
   "license": "ISC",
