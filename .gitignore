@@ -3,3 +3,5 @@
 **/config.js
 **/build
 **/.DS_Store
+.idea
+deploy.sh

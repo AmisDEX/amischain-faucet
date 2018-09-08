@@ -1,4 +1,8 @@
-[![CircleCI](https://circleci.com/gh/TyrionShared/wanchain-faucet.svg?style=svg)](https://circleci.com/gh/TyrionShared/wanchain-faucet) [![dependency status][dep-image]][dep-url]
+# Wanchain Faucet
+
+[![CircleCI][circle-image]][circle-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
+[![dependency status][dep-image]][dep-url]
 
 # Instructions
 
@@ -72,5 +76,9 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[dep-image]: https://david-dm.org/TyrionShared/wanchain-faucet.svg
-[dep-url]: https://david-dm.org/TyrionShared/wanchain-faucet
+[dep-image]: https://david-dm.org/C3Devs/wanchain-faucet.svg
+[dep-url]: https://david-dm.org/C3Devs/wanchain-faucet
+[circle-image]: https://circleci.com/gh/C3Devs/wanchain-faucet.svg?style=svg
+[circle-url]: https://circleci.com/gh/C3Devs/wanchain-faucet
+[coveralls-image]: https://coveralls.io/repos/github/C3Devs/wanchain-faucet/badge.svg?branch=dev
+[coveralls-url]: https://coveralls.io/github/C3Devs/wanchain-faucet?branch=dev
