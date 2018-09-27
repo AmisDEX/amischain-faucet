@@ -1,4 +1,4 @@
-# Wanchain Faucet
+# Amis chain Faucet
 
 [![CircleCI][circle-image]][circle-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
@@ -65,6 +65,8 @@ then create the docker container with
 `docker run --name wanchain-faucet -d -p 3000:80 wanchain-faucet`
 
 ## License
+
+
 
 Copyright 2018 Tyrion70..
 
